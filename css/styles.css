@@ -10,7 +10,7 @@ body,td,th,p{
 body {
 	background-color: #fdfdfd;
 	margin: 0;
-	position:relative;
+	position: relative;
 }
 ul, li {
 	font-family: Arial, Helvetica, sans-serif;
@@ -54,6 +54,9 @@ nav {
   height: 80px;
   background-color: #252831;
   text-align:center;
+
+	display: flex;
+	flex-wrap: nowrap;
 }
 nav h1 {
   margin: auto;
@@ -109,6 +112,8 @@ nav h1 a {
   height: 50px;
   background-color: #3397DB;
   align-items: center;
+	display: inline-flex;
+	float: right;
 }
 .filter-options h2 {
   color: white;
@@ -136,6 +141,10 @@ nav h1 a {
   margin: 0;
   padding: 30px 15px 60px;
   text-align: center;
+
+	display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 #restaurants-list li {
   background-color: #fff;
@@ -190,7 +199,7 @@ nav h1 a {
   z-index: 1000;
 }
 .inside #map-container {
-  background: blue none repeat scroll 0 0;
+  background: #ccc none repeat scroll 0 0;
   height: 87%;
   position: fixed;
   right: 0;
@@ -258,7 +267,7 @@ nav h1 a {
 }
 #reviews-list li {
   background-color: #fff;
-    border: 2px solid #f3f3f3;
+  border: 2px solid #f3f3f3;
   display: block;
   list-style-type: none;
   margin: 0 0 30px;
