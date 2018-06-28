@@ -4,6 +4,7 @@
     width: 320px;
   }
 }
+
 @media screen and (max-width: 480px) {
   .filter-options h2 {
     display: none;
@@ -12,6 +13,7 @@
     display: table-header-group;
   }
 }
+
 @media screen and (max-width: 640px) {
   #restaurants-list li {
     width: 100%;
@@ -26,7 +28,6 @@
     width: 100%;
   }
 }
-
 
 
 
@@ -67,7 +68,6 @@
   }
 }
 
-
 @media screen and (min-width: 641px) and (max-width: 940px) {
   .inside #map-container {
     left: 400px;
@@ -93,7 +93,6 @@
     margin-right: 0;
   }
 }
-
 
 @media screen and (min-width: 1221px) and (max-width: 1540px)  {
   .wrapper {

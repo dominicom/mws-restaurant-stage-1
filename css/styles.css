@@ -49,7 +49,7 @@ h5,
 h6 {
 	font-family: "Barlow Condensed", sans-serif;
 	font-weight: 500;
-  margin: 0 0 20px;
+  margin: 0 0 1em;
 }
 
 hr {
@@ -169,38 +169,6 @@ nav {
 	border: 6px solid #fff;
 }
 
-.breadcrumbs {
-  background-color: #eee;
-  height: 3em;
-  display: inline-flex;
-  align-items: center;
-}
-
-#breadcrumb {
-  align-items: center;
-  display: inline-flex;
-	color: #fff;
-  list-style: none;
-  padding-inline-start: 1em;
-  font-size: 1em;
-  font-weight: 400;
-  margin: 0;
-}
-
-#breadcrumb li {
-  display: inline;
-  background-color: #1833ab;
-  padding: 0.2em 1em 0.3em 0.5em;
-  border-radius: 0.25em 2em 2em 0.25em;
-  margin-right: 0.5em;
-}
-#breadcrumb li a {
-  color: #fff;
-  text-decoration: none;
-}
-#breadcrumb li a:hover {
-  color: #ed1E79;
-}
 
 
 /* ====================== Map ====================== */
@@ -335,7 +303,40 @@ nav {
 
 
 /* ====================== Restaurant Details ====================== */
+.breadcrumbs {
+  background-color: #eee;
+  height: 3em;
+  display: inline-flex;
+  align-items: center;
+}
 
+#breadcrumb {
+  align-items: center;
+  display: inline-flex;
+	color: #fff;
+  list-style: none;
+  font-size: 1em;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+#breadcrumb li {
+  display: inline;
+  background-color: #1833ab;
+  padding: 0.2em 1em 0.3em 0.5em;
+  border-radius: 0.25em 2em 2em 0.25em;
+}
+#breadcrumb li:first-child {
+  margin: 0 0.5em 0 1em;
+}
+#breadcrumb li a {
+  color: #fff;
+  text-decoration: none;
+}
+#breadcrumb li a:hover {
+  color: #ed1E79;
+}
 
 #restaurant-container,
 #reviews-container {
@@ -344,8 +345,6 @@ nav {
 #restaurant-container h2,
 #reviews-container h2 {
   color: #333;
-  font-size: 1em;
-  font-weight: 500;
   text-transform: uppercase;
 }
 
@@ -425,12 +424,10 @@ nav {
   font-size: 0.8em;
   color: #333;
   padding-right: 1em;
-  padding-block-end: 0.25em;
 }
 #restaurant-hours tr td:first-of-type {
   font-weight: 500;
   text-transform: uppercase;
-
 }
 #restaurant-hours tr td:first-of-type:after {
   content: ":";
@@ -470,7 +467,6 @@ nav {
 .review-heading .name {
   font-size: 1.2em;
   color: #1833ab;
-  font-weight: 500;
 }
 .review-heading .date {
   font-size: 0.8em;

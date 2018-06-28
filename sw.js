@@ -28,6 +28,7 @@ const assets = [
   './img/8.jpg',
   './img/9.jpg',
   './img/10.jpg',
+  './img/favicon.png',
   'https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400,500,600',
   'https://fonts.googleapis.com/css?family=Montserrat:600'
 ];
