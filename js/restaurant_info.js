@@ -107,16 +107,31 @@ fetchRestaurantFromURL = (callback) => {
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
+  name.classList.add(restaurant.cuisine_type.toLowerCase() + '-color');
 
-  const address = document.getElementById('restaurant-address');
-  address.innerHTML = restaurant.address;
+  const rating = document.querySelector('.rating');
+  rating.innerHTML = 'Rating: ' + restaurantRating(restaurant); //'rating';
+  rating.classList.add(restaurant.cuisine_type.toLowerCase());
 
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.style.backgroundImage = `url('${DBHelper.imageUrlForRestaurant(restaurant)}')`;
+  image.setAttribute('aria-label', 'Image ' + restaurant.name + ' restaurant, ');
+  // image.tabIndex = '2';
+
+  const location = document.getElementById('restaurant-location');
+  location.innerHTML = restaurant.neighborhood;
+
+  const address = document.getElementById('restaurant-address');
+  address.innerHTML = restaurant.address;
+  address.setAttribute('aria-label', 'Address: ' + restaurant.address + ', ' + restaurant.neighborhood);
+
+
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
+  cuisine.classList.add(restaurant.cuisine_type.toLowerCase());
+  cuisine.setAttribute('aria-label', 'Cuisine type: ' + restaurant.cuisine_type);
 
   // fill operating hours
   if (restaurant.operating_hours) {
@@ -124,6 +139,14 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   }
   // fill reviews
   fillReviewsHTML();
+}
+
+restaurantRating = (restaurant) => {
+  let reviews = restaurant.reviews.map( (r) => r.rating);
+  let rating = reviews.reduce((a, b) => a + b, 0) / reviews.length;
+  rating = rating.toFixed(1);
+
+  return rating;
 }
 
 /**
@@ -150,10 +173,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
  * Create all reviews HTML and add them to the webpage.
  */
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
-  const container = document.getElementById('reviews-container');
-  const title = document.createElement('h2');
-  title.innerHTML = 'Reviews';
-  container.appendChild(title);
+  const container = document.querySelector('#reviews-container div');
 
   if (!reviews) {
     const noReviews = document.createElement('p');
@@ -173,20 +193,30 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+
+  const heading = document.createElement('div');
+  heading.className = 'review-heading';
+  li.appendChild(heading);
+
+
   const name = document.createElement('p');
   name.innerHTML = review.name;
-  li.appendChild(name);
+  name.className = 'name';
+  heading.appendChild(name);
 
   const date = document.createElement('p');
   date.innerHTML = review.date;
-  li.appendChild(date);
+  date.className = 'date';
+  heading.appendChild(date);
 
   const rating = document.createElement('p');
   rating.innerHTML = `Rating: ${review.rating}`;
+  rating.className = 'rating';
   li.appendChild(rating);
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
+  comments.className = 'comment';
   li.appendChild(comments);
 
   return li;

@@ -103,6 +103,7 @@ initMap = () => {
   }).addTo(newMap);
 
   updateRestaurants();
+  document.getElementById('map').tabIndex = '-1';
 }
 
 /**
@@ -164,11 +165,14 @@ createRestaurantHTML = (restaurant) => {
   // link.innerHTML = 'View Details';
   link.href = DBHelper.urlForRestaurant(restaurant);
   link.className = restaurant.cuisine_type.toLowerCase();
+  link.setAttribute('aria-label', 'Details of ' + restaurant.name + ' restaurant, ' + restaurant.neighborhood);
+  link.tabIndex = '2';
   li.append(link);
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = 'Image of ' + restaurant.name + ' restaurant';
   link.append(image);
 
   const label = document.createElement('div');
@@ -201,16 +205,6 @@ createRestaurantHTML = (restaurant) => {
   type.className = 'cuisine-type';
   type.innerHTML = restaurant.cuisine_type;
   label.append(type);
-
-
-
-
-
-
-  // const more = document.createElement('a');
-  // more.innerHTML = 'View Details';
-  // more.href = DBHelper.urlForRestaurant(restaurant);
-  // li.append(more)
 
   return li
 }
