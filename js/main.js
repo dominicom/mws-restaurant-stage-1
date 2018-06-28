@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 let restaurants,
     neighborhoods,
     cuisines;
@@ -41,7 +43,7 @@ fetchNeighborhoods = () => {
       fillNeighborhoodsHTML();
     }
   });
-}
+};
 
 /**
  * Set neighborhoods HTML.
@@ -54,7 +56,7 @@ fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
     option.value = neighborhood;
     select.append(option);
   });
-}
+};
 
 /**
  * Fetch all cuisines and set their HTML.
@@ -68,7 +70,7 @@ fetchCuisines = () => {
       fillCuisinesHTML();
     }
   });
-}
+};
 
 /**
  * Set cuisines HTML.
@@ -82,7 +84,7 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
     option.value = cuisine;
     select.append(option);
   });
-}
+};
 
 /**
  * Initialize leaflet map, called from HTML.
@@ -104,7 +106,7 @@ initMap = () => {
 
   updateRestaurants();
   document.getElementById('map').tabIndex = '-1';
-}
+};
 
 /**
  * Update page and map for current restaurants.
@@ -126,8 +128,8 @@ updateRestaurants = () => {
       resetRestaurants(restaurants);
       fillRestaurantsHTML();
     }
-  })
-}
+  });
+};
 
 /**
  * Clear current restaurants, their HTML and remove their map markers.
@@ -142,7 +144,7 @@ resetRestaurants = (restaurants) => {
   self.markers.forEach(m => m.setMap(null));
   self.markers = [];
   self.restaurants = restaurants;
-}
+};
 
 /**
  * Create all restaurants HTML and add them to the webpage.
@@ -153,7 +155,7 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
     ul.append(createRestaurantHTML(restaurant));
   });
   addMarkersToMap();
-}
+};
 
 /**
  * Create restaurant HTML.
@@ -206,8 +208,8 @@ createRestaurantHTML = (restaurant) => {
   type.innerHTML = restaurant.cuisine_type;
   label.append(type);
 
-  return li
-}
+  return li;
+};
 
 restaurantRating = (restaurant) => {
   let reviews = restaurant.reviews.map( (r) => r.rating);
@@ -215,7 +217,7 @@ restaurantRating = (restaurant) => {
   rating = rating.toFixed(1);
 
   return rating;
-}
+};
 
 
 
@@ -231,4 +233,4 @@ addMarkersToMap = (restaurants = self.restaurants) => {
       window.location.href = marker.options.url;
     }
   });
-}
+};
