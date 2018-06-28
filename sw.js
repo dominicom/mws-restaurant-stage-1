@@ -1,4 +1,4 @@
-const staticCacheName = 'cache-v1';
+const staticCacheName = 'review-cache-v1';
 const assets = [
   '/',
   'index.html',
@@ -28,7 +28,6 @@ const assets = [
   '/img/8.jpg',
   '/img/9.jpg',
   '/img/10.jpg',
-  '//normalize-css.googlecode.com/svn/trunk/normalize.css',
   'https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400,500,600',
   'https://fonts.googleapis.com/css?family=Montserrat:600'
 ];
@@ -48,7 +47,7 @@ self.addEventListener('activate', function (event) {
           .then( (cacheNames) => {
             return Promise.all(
                 cacheNames.filter(function (cacheName) {
-                    return cacheName.startsWith('cache-') &&
+                    return cacheName.startsWith('review-') &&
                         cacheName != staticCacheName;
                 }).map(function (cacheName) {
                     return caches.delete(cacheName);
