@@ -166,7 +166,7 @@ createRestaurantHTML = (restaurant) => {
   link.href = DBHelper.urlForRestaurant(restaurant);
   link.className = restaurant.cuisine_type.toLowerCase();
   link.setAttribute('aria-label', 'Details of ' + restaurant.name + ' restaurant, ' + restaurant.neighborhood);
-  link.tabIndex = '2';
+  link.tabIndex = '0';
   li.append(link);
 
   const image = document.createElement('img');
