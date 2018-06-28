@@ -32,7 +32,7 @@ const assets = [
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open(cacheName)
+    caches.open(staticCacheName)
       .then( (cache) => {
         return cache.addAll(assets);
       })
